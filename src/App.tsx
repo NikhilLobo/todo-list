@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { Layout, Typography } from "antd";
+
+const { Header, Content } = Layout;
+const { Title } = Typography;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout style={{ minHeight: "50vh" }}>
+      <Header style={{ backgroundColor: "#001529", padding: "0 24px" }}>
+        <Title
+          level={2}
+          style={{ color: "white", lineHeight: "64px", margin: 0 }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Todo List
+        </Title>
+      </Header>
+      <Content
+        style={{
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "100%", maxWidth: "800px" }}>
+          <TodoForm />
+          <TodoList />
+        </div>
+      </Content>
+    </Layout>
   );
 }
 
